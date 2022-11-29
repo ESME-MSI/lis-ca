@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Setting the variable `DOCKER` to the value of the command `which docker`.
+DOCKER=$(which docker)
+
+# It builds the image from the Dockerfile in the current directory and tags it as projet.
+$DOCKER build . -t projet
+
+# It runs the image projet in a container named projet.
+$DOCKER run -it --rm -v /Users/Shared/Docker-Projet/Shared:/root/workspace -d -p 8080:80 --name projet projet
